@@ -1,3 +1,20 @@
+# Project rules
+
+- Project: portfolio.
+- Framework: Next.js, Pages Router (`src/pages`).
+- Language: JavaScript / JSX. No TypeScript.
+- Styles: SCSS Modules (`*.module.scss`), colocated with pages/components.
+- Import styles: `import styles from "./page.module.scss";`.
+- Apply styles: `<div className={styles.start}>start</div>`.
+- Images: `import Image from "next/image";` when needed.
+- Shared layout: `src/components/Layout.jsx`, mounted in `src/pages/_app.js`.
+- Projects page: `src/pages/projects/index.jsx` (`/projects`).
+- Planned 3D stack: Three.js, React Three Fiber (R3F), WebGPU, TSL.
+- Planned animation stack: GSAP, Framer Motion.
+- Install required dependencies when implementing those features; Sass is required before importing SCSS.
+- Initial scope: plain shared `layout` text and `project` page text. No CSS or animations.
+- Keep components minimal. No unused imports.
+
 <!-- BEGIN:nextjs-agent-rules -->
 
 # This is NOT the Next.js you know
