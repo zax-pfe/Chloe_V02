@@ -1,11 +1,14 @@
-import { Environment, OrbitControls } from "@react-three/drei";
+import { Environment, OrbitControls, useEnvironment } from "@react-three/drei";
 import { color } from "three/tsl";
 
 export const Experience = () => {
+  // Wait for the HDR and keep its lifetime managed by the loader cache.
+  const environment = useEnvironment({ preset: "sunset" });
+
   return (
     <>
       <OrbitControls />
-      <Environment preset="sunset" />
+      <Environment map={environment} />
       <mesh>
         <boxGeometry />
         <meshStandardNodeMaterial colorNode={color("pink")} />

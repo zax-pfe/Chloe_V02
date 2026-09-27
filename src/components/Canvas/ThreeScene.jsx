@@ -11,6 +11,7 @@ export default function ThreeScene() {
         camera={{ position: [3, 3, 3], fov: 30 }}
         gl={async (props) => {
           extend(THREE);
+
           const renderer = new THREE.WebGPURenderer({
             ...props,
             // Let WebGPU choose the adapter; Windows ignores this preference.
