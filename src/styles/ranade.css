@@ -1,0 +1,159 @@
+/**
+* @license
+*
+* Font Family: Ranade
+* Designed by: Easha Ranade, Indian Type Foundry
+* URL: https://www.fontshare.com/fonts/ranade
+* © 2026 Indian Type Foundry
+*
+* Ranade Thin 
+* Ranade ThinItalic 
+* Ranade Light 
+* Ranade LightItalic 
+* Ranade Regular 
+* Ranade Italic 
+* Ranade Medium 
+* Ranade MediumItalic 
+* Ranade Bold 
+* Ranade BoldItalic 
+* Ranade Variable (Variable font)
+* Ranade VariableItalic (Variable font)
+
+*
+*/
+@font-face {
+  font-family: "Ranade-Thin";
+  src:
+    url("../../public/fonts/ranade/Ranade-Thin.woff2") format("woff2"),
+    url("../../public/fonts/ranade/Ranade-Thin.woff") format("woff"),
+    url("../../public/fonts/ranade/Ranade-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Ranade-ThinItalic";
+  src:
+    url("../../public/fonts/ranade/Ranade-ThinItalic.woff2") format("woff2"),
+    url("../../public/fonts/ranade/Ranade-ThinItalic.woff") format("woff"),
+    url("../../public/fonts/ranade/Ranade-ThinItalic.ttf") format("truetype");
+  font-weight: 100;
+  font-display: swap;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Ranade-Light";
+  src:
+    url("../../public/fonts/ranade/Ranade-Light.woff2") format("woff2"),
+    url("../../public/fonts/ranade/Ranade-Light.woff") format("woff"),
+    url("../../public/fonts/ranade/Ranade-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Ranade-LightItalic";
+  src:
+    url("../../public/fonts/ranade/Ranade-LightItalic.woff2") format("woff2"),
+    url("../../public/fonts/ranade/Ranade-LightItalic.woff") format("woff"),
+    url("../../public/fonts/ranade/Ranade-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-display: swap;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Ranade-Regular";
+  src:
+    url("../../public/fonts/ranade/Ranade-Regular.woff2") format("woff2"),
+    url("../../public/fonts/ranade/Ranade-Regular.woff") format("woff"),
+    url("../../public/fonts/ranade/Ranade-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Ranade-Italic";
+  src:
+    url("../../public/fonts/ranade/Ranade-Italic.woff2") format("woff2"),
+    url("../../public/fonts/ranade/Ranade-Italic.woff") format("woff"),
+    url("../../public/fonts/ranade/Ranade-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Ranade-Medium";
+  src:
+    url("../../public/fonts/ranade/Ranade-Medium.woff2") format("woff2"),
+    url("../../public/fonts/ranade/Ranade-Medium.woff") format("woff"),
+    url("../../public/fonts/ranade/Ranade-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Ranade-MediumItalic";
+  src:
+    url("../../public/fonts/ranade/Ranade-MediumItalic.woff2") format("woff2"),
+    url("../../public/fonts/ranade/Ranade-MediumItalic.woff") format("woff"),
+    url("../../public/fonts/ranade/Ranade-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-display: swap;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Ranade-Bold";
+  src:
+    url("../../public/fonts/ranade/Ranade-Bold.woff2") format("woff2"),
+    url("../../public/fonts/ranade/Ranade-Bold.woff") format("woff"),
+    url("../../public/fonts/ranade/Ranade-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Ranade-BoldItalic";
+  src:
+    url("../../public/fonts/ranade/Ranade-BoldItalic.woff2") format("woff2"),
+    url("../../public/fonts/ranade/Ranade-BoldItalic.woff") format("woff"),
+    url("../../public/fonts/ranade/Ranade-BoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-display: swap;
+  font-style: italic;
+}
+/**
+* This is a variable font
+* You can control variable axes as shown below:
+* font-variation-settings: wght 700.0;
+*
+* available axes:
+'wght' (range from 100.0 to 700.0
+*/
+@font-face {
+  font-family: "Ranade-Variable";
+  src:
+    url("../../public/fonts/ranade/Ranade-Variable.woff2") format("woff2"),
+    url("../../public/fonts/ranade/Ranade-Variable.woff") format("woff"),
+    url("../../public/fonts/ranade/Ranade-Variable.ttf") format("truetype");
+  font-weight: 100 700;
+  font-display: swap;
+  font-style: normal;
+}
+/**
+* This is a variable font
+* You can control variable axes as shown below:
+* font-variation-settings: wght 700.0;
+*
+* available axes:
+'wght' (range from 100.0 to 700.0
+*/
+@font-face {
+  font-family: "Ranade-VariableItalic";
+  src:
+    url("../../public/fonts/ranade/Ranade-VariableItalic.woff2") format("woff2"),
+    url("../../public/fonts/ranade/Ranade-VariableItalic.woff") format("woff"),
+    url("../../public/fonts/ranade/Ranade-VariableItalic.ttf") format("truetype");
+  font-weight: 100 700;
+  font-display: swap;
+  font-style: italic;
+}

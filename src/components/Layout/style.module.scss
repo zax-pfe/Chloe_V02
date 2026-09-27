@@ -1,0 +1,17 @@
+.layout {
+  isolation: isolate;
+}
+
+.titleContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // background-color: red;
+  height: 28vh;
+}
+
+.title {
+  font-size: 15vw;
+  white-space: nowrap;
+}
