@@ -1,6 +1,6 @@
 import { Environment, OrbitControls, useEnvironment } from "@react-three/drei";
 import { color } from "three/tsl";
-
+import GLImages from "../FloatingImage/GLImages";
 export const Experience = () => {
   // Wait for the HDR and keep its lifetime managed by the loader cache.
   const environment = useEnvironment({ preset: "sunset" });
@@ -9,10 +9,11 @@ export const Experience = () => {
     <>
       <OrbitControls />
       <Environment map={environment} />
-      <mesh>
+      {/* <mesh>
         <boxGeometry />
         <meshStandardNodeMaterial colorNode={color("pink")} />
-      </mesh>
+      </mesh> */}
+      <GLImages />
     </>
   );
 };
