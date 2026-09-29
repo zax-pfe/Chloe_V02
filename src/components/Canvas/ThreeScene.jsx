@@ -26,7 +26,6 @@ export default function ThreeScene() {
           return renderer;
         }}
       >
-        <color attach="background" args={["#ececec"]} />
         <Experience />
         <PostFX />
       </Canvas>

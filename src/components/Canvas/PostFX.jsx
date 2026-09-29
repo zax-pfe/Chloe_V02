@@ -33,7 +33,7 @@ import {
 const glass = {
   strength: 1,
   cornerRadius: 10,
-  bevelWidth: 540, // Largeur de la zone deformee depuis les bords (px CSS).
+  bevelWidth: 90, // Largeur de la zone deformee depuis les bords (px CSS).
   bevelSlope: 0.34, // Pente independante de la largeur et de l'epaisseur optique.
   bevelPower: 2.5,
   thickness: 22,
@@ -44,8 +44,8 @@ const glass = {
   envIntensity: 0.35,
   rimWidth: 2,
   rimIntensity: 0.22,
-  tint: "#f4faff",
-  rimColor: "#9ab5cc",
+  tint: "#ffffff",
+  rimColor: "#ffffff",
   rimColorTop: "#ffffff",
 };
 
@@ -91,14 +91,16 @@ export default function PostFX() {
         .mul(0.5);
       const normal = normalize(vec3(dx.negate(), dy.negate(), 1)).toVar();
       const viewDir = vec3(0, 0, 1);
-      const channels = ["r", "g", "b"].map((channel, index) => {
+      const samples = [0, 1, 2].map((index) => {
         const eta = 1 / Math.max(glass.ior + glass.dispersion * (index - 1), 1.0001);
         const ray = refract(viewDir.negate(), normal, eta).toVar();
         const travel = float(glass.thickness).div(max(abs(ray.z), 0.05));
         const displaced = baseUv.add(ray.xy.mul(travel).mul(glass.refractStrength).div(planeSize));
-        return map.sample(clamp(displaced, vec2(0), vec2(1)))[channel];
+        return map.sample(clamp(displaced, vec2(0), vec2(1))).toVar();
       });
-      const refracted = vec3(...channels);
+      const refracted = vec3(samples[0].r, samples[1].g, samples[2].b);
+      // Match coverage to the displaced RGB samples, including dispersion.
+      const refractedAlpha = max(max(samples[0].a, samples[1].a), samples[2].a);
 
       // Passage de l'espace ecran (Y vers le bas) a l'espace monde du HDR.
       const reflection = reflect(viewDir.negate(), normal);
@@ -111,14 +113,18 @@ export default function PostFX() {
       const rimColor = mix(color(glass.rimColor), color(glass.rimColorTop), baseUv.y.oneMinus());
       const finished = mix(
         refracted.mul(color(glass.tint)),
-        environment,
+        environment.mul(refractedAlpha),
         saturate(fresnel.mul(glass.envIntensity)),
-      ).add(rimColor.mul(rim));
+      ).add(rimColor.mul(rim).mul(refractedAlpha));
       // Fondu uniquement sur le quart interieur du biseau.
       const mask = smoothstep(width.negate(), width.mul(-0.75), distance).mul(
         float(1).sub(smoothstep(float(-0.75), float(0.75), distance)),
       );
-      return vec4(mix(rgba.rgb, finished, mask.mul(glass.strength)), rgba.a);
+      const effectStrength = mask.mul(glass.strength);
+      return vec4(
+        mix(rgba.rgb, finished, effectStrength),
+        mix(rgba.a, refractedAlpha, effectStrength),
+      );
     })();
 
     renderRef.current = (size) => {
