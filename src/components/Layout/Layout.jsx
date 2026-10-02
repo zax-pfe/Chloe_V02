@@ -18,11 +18,9 @@ export default function Layout({ children }) {
         <h1 className={styles.title}>Chloe Girten</h1>
         </div> */}
       <div className={styles.closeButtonContainer}>
-        {" "}
-        <CloseButton />{" "}
+        <CloseButton />
       </div>
       <div className={styles.pageRenderContainer}>
-        {/* <CloseButton /> */}
         <NavBar />
 
         <main className={styles.main}>{children}</main>

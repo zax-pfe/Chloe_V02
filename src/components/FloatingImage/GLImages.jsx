@@ -16,19 +16,19 @@ const BASE_SPEED = 0.05;
 const IMAGE_CONFIGS = [
   {
     url: "/img/1.png",
-    scale: [0.6, 0.6, 0.6],
+    scale: [0.8, 0.8, 0.8],
     basePosition: [0, 0, 0.1],
     rotationSpeed: 0.08,
   },
   {
     url: "/img/2.png",
-    scale: [0.6, 0.6, 0.6],
+    scale: [1.2, 1.2, 1.2],
     basePosition: [-0.6, 0.6, 0.9],
     rotationSpeed: -0.06,
   },
   {
     url: "/img/3.png",
-    scale: [0.6, 0.6, 0.6],
+    scale: [0.4, 0.4, 0.4],
     basePosition: [0.6, -0.6, 0.8],
     rotationSpeed: 0.05,
   },
@@ -40,7 +40,7 @@ const IMAGE_CONFIGS = [
   },
   {
     url: "/img/4.png",
-    scale: [0.6, 0.6, 0.6],
+    scale: [1, 1, 1],
     basePosition: [-0.4, -0.4, 0.6],
     rotationSpeed: 0.07,
   },
@@ -159,7 +159,7 @@ export default function GLImages() {
     if (index !== null && activeImage.current !== null) return false;
     activeImage.current = index;
     // imageSpeed.current = index === null ? 0.05 : 0;
-    globalSpeed.current = 0.1;
+    globalSpeed.current = 0.5;
     return true;
   };
 
