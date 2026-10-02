@@ -4,8 +4,10 @@ import "@/styles/globals.css";
 import { ReactLenis } from "lenis/react";
 import { DeviceModeProvider } from "@/context/DeviceContext";
 import Head from "next/head";
+import { AnimatePresence } from "framer-motion";
+import Inner from "@/components/Layout/Inner";
 
-export default function App({ Component, pageProps }) {
+export default function App({ Component, pageProps, router }) {
   return (
     <>
       <Head>
@@ -20,7 +22,11 @@ export default function App({ Component, pageProps }) {
           }}
         >
           <Layout>
-            <Component {...pageProps} />
+            <AnimatePresence mode="wait">
+              <Inner key={router.route} withPanel={router.route !== "/"}>
+                <Component {...pageProps} />
+              </Inner>
+            </AnimatePresence>
           </Layout>
         </ReactLenis>
       </DeviceModeProvider>

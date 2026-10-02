@@ -1,11 +1,9 @@
-import styles from "./page.module.scss";
-import Link from "next/link";
+import PageWrapper from "../../components/PageWrapper/PageWrapper";
 
 export default function Contact() {
   return (
-    <div>
-      {/* <Link href="/">Accueil</Link> */}
+    <PageWrapper>
       <h2>Contact</h2>
-    </div>
+    </PageWrapper>
   );
 }

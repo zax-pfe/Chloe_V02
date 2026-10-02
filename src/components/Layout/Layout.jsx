@@ -1,6 +1,7 @@
 import dynamic from "next/dynamic";
 import styles from "./style.module.scss";
 import NavBar from "../NavBar/NavBar";
+import CloseButton from "../CloseButton/CloseButton";
 
 const ThreeScene = dynamic(() => import("@/components/Canvas/ThreeScene"), {
   ssr: false,
@@ -16,11 +17,15 @@ export default function Layout({ children }) {
       {/* <div className={styles.titleContainer}>
         <h1 className={styles.title}>Chloe Girten</h1>
         </div> */}
+      <div className={styles.closeButtonContainer}>
+        {" "}
+        <CloseButton />{" "}
+      </div>
       <div className={styles.pageRenderContainer}>
+        {/* <CloseButton /> */}
         <NavBar />
-        <div className={styles.pageRender}>
-          <main className={styles.main}>{children}</main>
-        </div>
+
+        <main className={styles.main}>{children}</main>
       </div>
     </div>
   );
