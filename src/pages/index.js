@@ -8,9 +8,5 @@ export default function Home() {
   const { deviceMode } = useContext(DeviceModeContext);
   console.log(deviceMode);
 
-  return (
-    <div className={styles.start}>
-      <Link href="/projects">Projets</Link>
-    </div>
-  );
+  return <div className={styles.start}>{/* <Link href="/projects">Projets</Link> */}</div>;
 }

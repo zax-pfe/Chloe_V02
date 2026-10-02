@@ -1,17 +1,46 @@
 .layout {
   isolation: isolate;
-}
-
-.titleContainer {
   width: 100%;
+  height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  // background-color: red;
-  height: 28vh;
-}
+  position: relative;
+  justify-content: end;
 
-.title {
-  font-size: 15vw;
-  white-space: nowrap;
+  .titleBackContainer {
+    width: 100%;
+    height: 28vh;
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    align-items: center;
+    justify-content: center;
+
+    z-index: -2;
+    .titleBack {
+      font-size: 15vw;
+      white-space: nowrap;
+      color: #000000;
+    }
+  }
+  .pageRenderContainer {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 72vh;
+    padding: 2vh 1vw;
+    gap: 1vw;
+
+    .pageRender {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: solid 2px #000000;
+      border-radius: 1rem;
+    }
+  }
 }

@@ -12,6 +12,39 @@ const CANVAS_HEIGHT = 2;
 const CANVAS_WDTH = 2.9;
 const TARGET_POSITION = [0.5, 0, 1.1];
 const TARGET_SCALE = [1, 1, 1];
+const BASE_SPEED = 0.05;
+const IMAGE_CONFIGS = [
+  {
+    url: "/img/1.png",
+    scale: [0.6, 0.6, 0.6],
+    basePosition: [0, 0, 0.1],
+    rotationSpeed: 0.08,
+  },
+  {
+    url: "/img/2.png",
+    scale: [0.6, 0.6, 0.6],
+    basePosition: [-0.6, 0.6, 0.9],
+    rotationSpeed: -0.06,
+  },
+  {
+    url: "/img/3.png",
+    scale: [0.6, 0.6, 0.6],
+    basePosition: [0.6, -0.6, 0.8],
+    rotationSpeed: 0.05,
+  },
+  {
+    url: "/img/5.png",
+    scale: [0.6, 0.6, 0.6],
+    basePosition: [8, 8, 0.7],
+    rotationSpeed: -0.08,
+  },
+  {
+    url: "/img/4.png",
+    scale: [0.6, 0.6, 0.6],
+    basePosition: [-0.4, -0.4, 0.6],
+    rotationSpeed: 0.07,
+  },
+];
 
 function Material({ map, opacity }) {
   const colorNode = useMemo(() => textureNode(map), [map]);
@@ -23,7 +56,7 @@ function Material({ map, opacity }) {
   return <meshStandardNodeMaterial colorNode={colorNode} positionNode={positionNode} transparent />;
 }
 
-function GLImage({ url, scale, elementRef, index, basePosition = [0, 0, 0], angle, onSelect }) {
+function GLImage({ url, scale, elementRef, index, basePosition = [0, 0, 0], angle, rotationSpeed, onSelect }) {
   const [hovered, setHovered] = useState(false);
   useCursor(hovered);
 
@@ -34,7 +67,7 @@ function GLImage({ url, scale, elementRef, index, basePosition = [0, 0, 0], angl
   const map = useTexture(url);
   const aspect = map.image.width / map.image.height;
   const [randomAngle] = useState(() => Math.random() * Math.PI * 2);
-  const [randomSpeed] = useState(() => Math.random() * 0.1);
+  const [randomSpeed] = useState(() => Math.random() * 0.1 + BASE_SPEED);
 
   useEffect(() => {
     const mesh = meshRef.current;
@@ -53,6 +86,7 @@ function GLImage({ url, scale, elementRef, index, basePosition = [0, 0, 0], angl
         basePosition: basePosition,
         angle: angle ?? randomAngle,
         randomSpeed: randomSpeed,
+        rotationSpeed,
         selectedRef,
       }}
       ref={(element) => {
@@ -115,7 +149,7 @@ function GLImage({ url, scale, elementRef, index, basePosition = [0, 0, 0], angl
 }
 
 export default function GLImages() {
-  const imageSpeed = useRef(0.05);
+  const globalSpeed = useRef(0.3);
   const activeImage = useRef(null);
 
   const elementRef = useRef([]);
@@ -125,6 +159,7 @@ export default function GLImages() {
     if (index !== null && activeImage.current !== null) return false;
     activeImage.current = index;
     // imageSpeed.current = index === null ? 0.05 : 0;
+    globalSpeed.current = 0.1;
     return true;
   };
 
@@ -135,70 +170,23 @@ export default function GLImages() {
     elementRef.current.forEach((element) => {
       if (!element || element.userData.selectedRef.current) return;
 
-      const { angle, randomSpeed } = element.userData;
+      const { angle, randomSpeed, rotationSpeed } = element.userData;
       // Advance from the current position so floating resumes smoothly after deselection.
-      const distance = delta * (randomSpeed + imageSpeed.current);
+      const distance = delta * randomSpeed * globalSpeed.current;
       const offsetX = Math.cos(angle) * distance + wobble;
       const offsetY = Math.sin(angle) * distance + wobble;
 
-      element.position.x =
-        mod(element.position.x + offsetX + CANVAS_WDTH / 2, CANVAS_WDTH) - CANVAS_WDTH / 2;
-      element.position.y =
-        mod(element.position.y + offsetY + CANVAS_HEIGHT / 2, CANVAS_HEIGHT) - CANVAS_HEIGHT / 2;
+      element.position.x = mod(element.position.x + offsetX + CANVAS_WDTH / 2, CANVAS_WDTH) - CANVAS_WDTH / 2;
+      element.position.y = mod(element.position.y + offsetY + CANVAS_HEIGHT / 2, CANVAS_HEIGHT) - CANVAS_HEIGHT / 2;
+      element.rotation.z += delta * rotationSpeed * globalSpeed.current;
     });
   });
 
   return (
     <group ref={gridRef}>
-      <GLImage
-        url="/img/1.png"
-        scale={[0.6, 0.6, 0.6]}
-        elementRef={elementRef}
-        index={0}
-        onSelect={handleSelect}
-        basePosition={[0, 0, 0.1]}
-      />
-
-      <GLImage
-        url="/img/2.png"
-        scale={[0.6, 0.6, 0.6]}
-        elementRef={elementRef}
-        index={1}
-        onSelect={handleSelect}
-        basePosition={[-0.6, 0.6, 0.9]}
-      />
-      <GLImage
-        url="/img/3.png"
-        scale={[0.6, 0.6, 0.6]}
-        elementRef={elementRef}
-        index={2}
-        onSelect={handleSelect}
-        basePosition={[0.6, -0.6, 0.8]}
-      />
-      <GLImage
-        url="/img/5.png"
-        scale={[0.6, 0.6, 0.6]}
-        elementRef={elementRef}
-        index={3}
-        onSelect={handleSelect}
-        basePosition={[8, 8, 0.7]}
-      />
-      <GLImage
-        url="/img/4.png"
-        scale={[0.6, 0.6, 0.6]}
-        elementRef={elementRef}
-        index={4}
-        onSelect={handleSelect}
-        basePosition={[-0.4, -0.4, 0.6]}
-      />
-      {/* 
-      <GLImage
-        url="/img/1.png"
-        scale={[0.6, 0.6, 0.6]}
-        elementRef={null}
-        index={0}
-        basePosition={[0, 0, 0]}
-      /> */}
+      {IMAGE_CONFIGS.map((image, index) => (
+        <GLImage key={image.url} {...image} elementRef={elementRef} index={index} onSelect={handleSelect} />
+      ))}
     </group>
   );
 }

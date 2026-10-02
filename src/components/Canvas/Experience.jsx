@@ -1,6 +1,7 @@
 import { Environment, OrbitControls, useEnvironment } from "@react-three/drei";
 import { color } from "three/tsl";
 import GLImages from "../FloatingImage/GLImages";
+import TitleText from "../3dText/3dText";
 
 function TestCanvas() {
   return (
@@ -17,7 +18,8 @@ export const Experience = () => {
 
   return (
     <>
-      {/* <OrbitControls /> */}
+      {/* <TitleText /> */}
+      <OrbitControls />
       <Environment map={environment} />
       {/* <mesh>
         <boxGeometry />
