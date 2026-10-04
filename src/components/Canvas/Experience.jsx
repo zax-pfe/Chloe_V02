@@ -19,7 +19,7 @@ export const Experience = () => {
   return (
     <>
       {/* <TitleText /> */}
-      <OrbitControls />
+      {/* <OrbitControls /> */}
       <Environment map={environment} />
       {/* <mesh>
         <boxGeometry />

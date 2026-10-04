@@ -15,8 +15,10 @@ export default function ThreeScene() {
 
           const renderer = new THREE.WebGPURenderer({
             ...props,
+            alpha: true,
             powerPreference: undefined,
           });
+          renderer.setClearColor(0x000000, 0);
           if (process.env.NODE_ENV === "development") {
             await import("three/addons/inspector/tabs/Settings.js");
             const { Inspector } = await import("three/addons/inspector/Inspector.js");
