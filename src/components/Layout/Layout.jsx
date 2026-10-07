@@ -2,6 +2,7 @@ import dynamic from "next/dynamic";
 import styles from "./style.module.scss";
 import NavBar from "../NavBar/NavBar";
 import CloseButton from "../CloseButton/CloseButton";
+import Modal from "../ModalPiece/Modal";
 
 const ThreeScene = dynamic(() => import("@/components/Canvas/ThreeScene"), {
   ssr: false,
@@ -22,6 +23,7 @@ export default function Layout({ children }) {
       </div>
       <div className={styles.pageRenderContainer}>
         <NavBar />
+        <Modal />
 
         <main className={styles.main}>{children}</main>
       </div>
