@@ -11,6 +11,8 @@ import {
   uniform,
   vec3,
 } from "three/tsl";
+import { images_config } from "./imageList";
+import { imageData } from "@/data/floatingImgData";
 
 function mod(n, m) {
   return ((n % m) + m) % m;
@@ -25,63 +27,7 @@ const WAVE_FREQUENCY = 0.8; // Approximately one cycle over the full animation.
 const RESUME_DURATION = 0.8;
 // Fixed variations: positions are XYZ; rotation and direction are in degrees.
 // Amplitude is in scene units, frequency in Hz, and phase in radians.
-const IMAGE_CONFIGS = [
-  {
-    url: "/img/1.png",
-    basePosition: [0, 0, -1.73],
-    scale: [1, 1, 1],
-    rotation: -18,
-    direction: 37,
-    speed: 0.137,
-    amplitude: 0.014,
-    frequency: 0.085,
-    phase: [0.72, 4.18],
-  },
-  {
-    url: "/img/2.png",
-    basePosition: [-0.6, 0.6, 0.76],
-    scale: [1, 1, 1],
-    rotation: 24,
-    direction: 158,
-    speed: 0.182,
-    amplitude: 0.022,
-    frequency: 0.132,
-    phase: [2.39, 5.61],
-  },
-  {
-    url: "/img/3.png",
-    basePosition: [0.6, -0.6, -0.91],
-    scale: [1, 1, 1],
-    rotation: -7,
-    direction: 263,
-    speed: 0.116,
-    amplitude: 0.011,
-    frequency: 0.068,
-    phase: [4.83, 1.27],
-  },
-  {
-    url: "/img/5.png",
-    basePosition: [0.5, 0.35, 0.08],
-    scale: [1, 1, 1],
-    rotation: 13,
-    direction: 319,
-    speed: 0.164,
-    amplitude: 0.018,
-    frequency: 0.112,
-    phase: [5.94, 3.06],
-  },
-  {
-    url: "/img/4.png",
-    basePosition: [-0.4, -0.4, -0.38],
-    scale: [1, 1, 1],
-    rotation: -26,
-    direction: 104,
-    speed: 0.193,
-    amplitude: 0.016,
-    frequency: 0.149,
-    phase: [1.56, 0.43],
-  },
-];
+const IMAGE_CONFIGS = images_config;
 
 function Material({ map, deformation }) {
   const colorNode = useMemo(() => textureNode(map), [map]);
@@ -265,7 +211,9 @@ export default function GLImages() {
       if (isModalOpen && selectedPiece.id === index) closePiece();
       return;
     }
-    openPiece({ id: index, title: `Pièce ${index + 1}`, ...IMAGE_CONFIGS[index] });
+    const image = IMAGE_CONFIGS[index];
+    const data = imageData.find((piece) => piece.url === image.url);
+    openPiece({ id: index, ...image, ...data });
   };
 
   useFrame(({ camera, viewport }, delta) => {

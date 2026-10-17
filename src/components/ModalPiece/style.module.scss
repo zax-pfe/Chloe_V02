@@ -1,22 +1,62 @@
 .modalContainer {
-  position: relative;
-  grid-column: 2;
-  grid-row: 1;
-  align-self: stretch;
-  justify-self: start;
-  min-height: 0;
-  width: min(30vw, 100%);
-  overflow-y: auto;
-  pointer-events: auto;
-  z-index: 0;
-  border: solid 2px #000000;
-  border-radius: 1rem;
-  padding: 10px;
-  background-color: #ffffff;
-}
+  width: 519px;
+  margin-left: 10px;
+  border-radius: 8px;
+  border: 1px solid #000;
+  background: #fffbf6;
+  padding: 13px 20px 20px 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
 
-.closeButton {
-  display: block;
-  margin-left: auto;
-  cursor: pointer;
+  .topContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .pieceName {
+      color: #000;
+      font-family: Raleway;
+      font-size: 40px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+    .closeButton {
+      // background-color: rebeccapurple;
+      width: 31px;
+      height: 31px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+  }
+
+  .botContainer {
+    display: flex;
+
+    .year {
+      flex: 1;
+      p {
+        color: #000;
+        font-family: Raleway;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+      }
+    }
+    .description {
+      flex: 1;
+      p {
+        color: #000;
+        font-family: Raleway;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+      }
+    }
+  }
 }

@@ -1,0 +1,6 @@
+- Importer et appliquer la font raleway
+- appliquer les dimmension de nav a gauche
+- Ajouter des images flotantes
+- ajouter petit loader au debut quand on charge le canvas
+- ## implementer le style du modal quand on clique sur une piece
+- ## Implementer la gallerie de Pieces

@@ -1,58 +1,42 @@
 .navBarContainer {
-  height: 100%;
-  width: 100%;
-  min-width: 0;
-  grid-column: 1;
-  grid-row: 1;
-  z-index: 10;
-  pointer-events: auto;
   display: flex;
+  width: 166px;
+  flex-shrink: 0;
+  // height: 604px;
+  padding: 10px;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  gap: 10px;
+
+  border-radius: 8px;
+  border: 1px solid #000;
+  background: #fffbf6;
+  pointer-events: all;
 
   .navBar {
-    width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .navLink {
+    display: flex;
+    padding: 10px 0;
+    justify-content: center;
     align-items: center;
     gap: 10px;
-    border: solid 2px #000000;
-    border-radius: 1rem;
-    padding: 10px;
-    background-color: #ffffff;
+    align-self: stretch;
+    width: 100%;
+    border-radius: 6px;
 
-    .navLink {
-      position: relative;
-      display: flex;
-      width: 100%;
-      height: 40px;
-      justify-content: center;
-      align-items: center;
-      text-decoration: none;
-      color: #000000;
-      font-size: 0.9rem;
-      background-color: transparent;
-      border-radius: 0.5rem;
-      overflow: hidden;
-
-      &.active {
-        color: #ffffff;
-        background-color: #000000;
-      }
-
-      .activeBackground {
-        position: absolute;
-        inset: 0;
-        background-color: #000000;
-      }
-
-      p {
-        position: relative;
-        z-index: 1;
-        color: inherit;
-        font-size: 0.9rem;
-      }
+    p {
+      margin: 0;
+      color: inherit;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 120%; /* 16.8px */
     }
   }
 }

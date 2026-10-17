@@ -2,7 +2,7 @@ import styles from "./style.module.scss";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { AnimatePresence, motion } from "framer-motion";
-
+import ButtonSVG from "./ButtonSVG";
 const closeButtonVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -25,8 +25,8 @@ export default function CloseButton() {
           animate="visible"
           exit="hidden"
         >
-          <Link href="/" className={styles.closeButton}>
-            x
+          <Link href="/" className={styles.closeButton} aria-label="Fermer et revenir à l’accueil">
+            <ButtonSVG />
           </Link>
         </motion.div>
       )}
