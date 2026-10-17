@@ -2,37 +2,37 @@
 export const imageData = [
   {
     url: "/img/1.png",
-    title: "Fragments de silence",
+    title: "Good boy",
     date: "2022",
     description:
-      "Une recherche autour des formes suspendues et des espaces vides. Les contours se répondent comme les fragments d'un souvenir qui se recompose lentement.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
     url: "/img/2.png",
-    title: "Les heures bleues",
+    title: "Chouette chien",
     date: "2023",
     description:
-      "Cette pièce évoque le passage du jour à la nuit. Les matières et les couleurs dessinent un paysage imaginaire, entre douceur et tension.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
     url: "/img/3.png",
-    title: "Échos lointains",
+    title: "Chienchien",
     date: "2021",
     description:
-      "Un assemblage de traces et de gestes spontanés. Chaque détail prolonge le précédent et laisse apparaître une histoire ouverte aux interprétations.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
     url: "/img/4.png",
-    title: "Jardin intérieur",
+    title: "Toutou",
     date: "2024",
     description:
-      "Des formes organiques se croisent et se déploient dans un équilibre fragile. Une invitation à explorer un jardin inventé, nourri de sensations et de souvenirs.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
     url: "/img/5.png",
-    title: "Mouvement discret",
+    title: "Toudoux",
     date: "2025",
     description:
-      "Une composition pensée comme un mouvement arrêté dans le temps. Les lignes et les volumes suggèrent une présence légère, sur le point de se transformer.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
 ];

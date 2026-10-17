@@ -5,45 +5,45 @@ import piece3 from "../../public/piece_img/piece_3.png";
 export const pieceImgData = [
   {
     url: piece1.src,
-    title: "Fragments de silence",
+    title: "Good boy",
     date: "2022",
     description:
-      "Une recherche autour des formes suspendues et des espaces vides. Les contours se répondent comme les fragments d'un souvenir qui se recompose lentement.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
     url: piece2.src,
-    title: "Fragments de silence",
+    title: "Chouette chien",
     date: "2022",
     description:
-      "Une recherche autour des formes suspendues et des espaces vides. Les contours se répondent comme les fragments d'un souvenir qui se recompose lentement.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
     url: piece3.src,
-    title: "Fragments de silence",
+    title: "Chienchien",
     date: "2022",
     description:
-      "Une recherche autour des formes suspendues et des espaces vides. Les contours se répondent comme les fragments d'un souvenir qui se recompose lentement.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
 
   {
     url: piece1.src,
-    title: "Fragments de silence",
+    title: "Toutou",
     date: "2022",
     description:
-      "Une recherche autour des formes suspendues et des espaces vides. Les contours se répondent comme les fragments d'un souvenir qui se recompose lentement.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
     url: piece2.src,
-    title: "Fragments de silence",
+    title: "Toudoux",
     date: "2022",
     description:
-      "Une recherche autour des formes suspendues et des espaces vides. Les contours se répondent comme les fragments d'un souvenir qui se recompose lentement.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
     url: piece3.src,
-    title: "Fragments de silence",
+    title: "Bon toutou",
     date: "2022",
     description:
-      "Une recherche autour des formes suspendues et des espaces vides. Les contours se répondent comme les fragments d'un souvenir qui se recompose lentement.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
 ];
