@@ -1,0 +1,23 @@
+.loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  padding: 20px 22px;
+
+  display: flex;
+  justify-content: center;
+  background-color: var(--background);
+  z-index: -1;
+
+  .titleloader {
+    margin: 0;
+    white-space: nowrap;
+    text-box-trim: trim-both;
+    text-box-edge: cap alphabetic;
+    font-size: 210px;
+    font-weight: 500;
+    line-height: normal;
+  }
+}

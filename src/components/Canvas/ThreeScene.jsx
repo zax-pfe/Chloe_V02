@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { Canvas, extend } from "@react-three/fiber";
 import { Experience } from "./Experience";
 import * as THREE from "three/webgpu";
@@ -28,8 +29,10 @@ export default function ThreeScene() {
           return renderer;
         }}
       >
-        <Experience />
-        <PostFX />
+        <Suspense fallback={null}>
+          <Experience />
+          <PostFX />
+        </Suspense>
       </Canvas>
     </div>
   );

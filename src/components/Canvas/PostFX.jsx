@@ -2,6 +2,7 @@
 import { useFrame, useThree } from "@react-three/fiber";
 import { useEnvironment } from "@react-three/drei";
 import { RenderPipeline, Vector2 } from "three/webgpu";
+import { useSceneStore } from "../store/store";
 import {
   Fn,
   abs,
@@ -139,8 +140,14 @@ export default function PostFX() {
   }, [gl, scene, camera, envMap]);
 
   useFrame(({ size }) => {
-    if (renderRef.current) renderRef.current(size);
-    else gl.render(scene, camera);
+    if (renderRef.current) {
+      renderRef.current(size);
+      // Signal readiness only after the loaded scene and its effects have rendered.
+      const { isSceneReady, setSceneReady } = useSceneStore.getState();
+      if (!isSceneReady) setSceneReady();
+    } else {
+      gl.render(scene, camera);
+    }
   }, 1);
   return null;
 }

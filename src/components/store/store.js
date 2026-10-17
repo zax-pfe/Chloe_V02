@@ -1,5 +1,10 @@
 import { create } from "zustand";
 
+export const useSceneStore = create((set) => ({
+  isSceneReady: false,
+  setSceneReady: () => set({ isSceneReady: true }),
+}));
+
 export const usePieceStore = create((set) => ({
   selectedPiece: null,
   isModalOpen: false,

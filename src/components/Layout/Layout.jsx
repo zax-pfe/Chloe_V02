@@ -4,6 +4,7 @@ import NavBar from "../NavBar/NavBar";
 import CloseButton from "../CloseButton/CloseButton";
 import Modal from "../ModalPiece/Modal";
 import Title from "../Title/Title";
+import Loader from "../Loader/Loader";
 
 const ThreeScene = dynamic(() => import("@/components/Canvas/ThreeScene"), {
   ssr: false,
@@ -12,8 +13,8 @@ const ThreeScene = dynamic(() => import("@/components/Canvas/ThreeScene"), {
 export default function Layout({ children }) {
   return (
     <div className={styles.layout}>
+      <Loader />
       <ThreeScene />
-
       <div className={styles.content}>
         <Title />
         <div className={styles.topPageContainer}>
@@ -21,8 +22,10 @@ export default function Layout({ children }) {
         </div>
         <div className={styles.botPageContainer}>
           <NavBar />
-          <Modal />
-          <main className={styles.main}>{children}</main>
+          <main className={styles.main}>
+            <Modal />
+            {children}
+          </main>
         </div>
       </div>
     </div>
