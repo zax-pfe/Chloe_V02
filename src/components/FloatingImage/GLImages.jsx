@@ -18,7 +18,7 @@ function mod(n, m) {
   return ((n % m) + m) % m;
 }
 
-const TARGET_POSITION = [0.2, 0, 1.5];
+const TARGET_POSITION = [0.4, 0, 1.5];
 const TRANSITION_DURATION = 1.2;
 const WAVE_AMPLITUDE = 0.1;
 const WAVE_ATTACK_DURATION = 0.3;
